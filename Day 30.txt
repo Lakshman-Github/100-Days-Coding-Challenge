@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int team_strength = in.nextInt();
+        ArrayList<String> players = new ArrayList<String>();
+        String name;
+        while (true) {
+            name = in.next();
+            if (name.toUpperCase().equals("Q"))
+                break;
+            players.add(name);
+        }
+        int input_strength = players.size();
+        float[] height = new float[input_strength];
+        
+        for (int i = 0; i < input_strength; i++) {
+            height[i] = in.nextFloat();
+        }
+        
+        for (int i = 0; i < input_strength; i++) {
+            for (int j = i + 1; j < input_strength; j++) {
+                if (height[i] > height[j]) {
+                    
+                    float tempHeight = height[i];
+                    height[i] = height[j];
+                    height[j] = tempHeight;
+                   
+                    String tempName = players.get(i);
+                    players.set(i, players.get(j));
+                    players.set(j, tempName);
+                }
+            }
+        }
+        
+        for (int i = 0; i < team_strength && i < input_strength; i++)
+            System.out.println(players.get(i));
+    }
+}

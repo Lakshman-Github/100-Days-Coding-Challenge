@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int age,q1=0,q2=0;
+        while(n>0)
+        {
+            age = in.nextInt();
+            if(age>100 || age<10)
+            {
+                System.out.print("INVALID INPUT");
+                System.exit(0);
+            }
+            if(age>60 && q2<5)
+            q2+=1;
+            else
+            q1+=1;
+            n--;
+            
+        }
+        System.out.println("QUEUE1 TIME:"+q1*15);
+        System.out.println("QUEUE TIME:"+q2*15);
+    }
+}

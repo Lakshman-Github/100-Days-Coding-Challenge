@@ -1,0 +1,34 @@
+import java.util.*;
+class Main 
+{
+    static void t9Permutation(String str)
+    {
+        String []t9 = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        int i,j,n = str.length();
+        Queue<String> str_queue = new LinkedList<String>();
+        str_queue.add("");
+        for(i=0;i<n;i++)
+        {
+            int queue_size = str_queue.size();
+            String cur_str = t9[str.charAt(i)-48];
+            while(queue_size!=0)
+            {
+                for(j=0;j<cur_str.length();j++)
+                {
+                    str_queue.add(str_queue.peek()+cur_str.charAt(j));
+                }
+                str_queue.remove();
+                queue_size--;
+            }
+        }
+        for(String element: str_queue)
+        System.out.println(element);
+    }
+public static void main(String[]args)
+{
+    String str;
+    Scanner sc = new Scanner(System.in);
+    str = sc.nextLine();
+    t9Permutation(str);
+}
+}

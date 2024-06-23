@@ -1,0 +1,25 @@
+import java.util.*;
+class Main 
+{
+    static int coutWays(int n)
+    {
+        if(n%2==1)
+        return 1;
+        int t[] = new int[n+1];
+        for(int i=0;i<=n;i++)
+        {
+            if(i<=2)
+            t[i] = i;
+            else
+            t[i] = t[i-1]+(i-1)*t[i-2];
+        }
+        return t[n];
+    }
+    public static void main(String[]args)
+    {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    in.close();
+    System.out.print(coutWays(n));
+    }
+}

@@ -1,0 +1,25 @@
+import java.util.*;
+class Main 
+{   public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int array[] = new int[n];
+        for(int i=0;i<n;i++)
+        array[i] = in.nextInt();
+        ArrayList<Integer> div_10 = new ArrayList<Integer>(0);
+        int non_div_end = 0;
+        for(int i=0;i<n;i++)
+        {
+            if(array[i]%10 == 0)
+            div_10.add(array[i]);
+            else {
+                div_10.add(non_div_end,array[i]);
+                non_div_end++;
+            }
+        }
+        for(int i=0;i<n;i++)
+        System.out.print(div_10.get(i)+" ");
+        in.close();
+    }
+}

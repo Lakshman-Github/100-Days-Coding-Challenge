@@ -1,0 +1,21 @@
+import java.util.Scanner;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int vehicles = in.nextInt();
+        int wheels = in.nextInt();
+        in.close();
+        if(wheels%2 == 1 || wheels<2 || wheels<=vehicles)
+        {
+            System.out.print("INVALID INPUT");
+            return;
+        }
+        int wheels_cars = vehicles*4;
+        int surplus_wheels = wheels_cars - wheels;
+        int no_of_bikes = surplus_wheels/2;
+        int no_of_cars = vehicles - no_of_bikes;
+        System.out.print(no_of_bikes+"\n"+no_of_cars);
+    }
+}

@@ -1,0 +1,29 @@
+import java.util.Scanner;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        String str = in.nextLine();
+        int key = in.nextInt(),ch;
+        if(key<0)
+        {
+            System.out.println("INVALID INPUT");
+            return;
+        }
+        key = key%26;
+        for(int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i)>=65 && str.charAt(i)<=90)
+            ch=(str.charAt(i)+key-65)%26+65;
+            else if(str.charAt(i)>=97 && str.charAt(i)<=122)
+            ch=(str.charAt(i)+key-97)%26+97;
+            else if(str.charAt(i)>=48 && str.charAt(i)<=57)
+            ch=(str.charAt(i)+key-48)%10+48;
+            else
+            continue;
+            str=str.substring(0,i)+Character.toString((char) ch)+str.substring(i+1,str.length());
+        }
+        System.out.println(str);
+        }
+    }

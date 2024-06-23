@@ -1,0 +1,34 @@
+import java.util.*;
+class Main 
+{
+    static String addBinary(String str1,String str2)
+    {
+        int i = str1.length()-1;
+        int j = str2.length()-1;
+        int c = 0;
+        String result = "";
+        while(c==1 || i>=0 || j>=0)
+    {
+        if(i>=0)
+        {
+            c+=str1.charAt(i)-48;
+            i--;
+        }
+        if(j>=0)
+        {
+            c+=str2.charAt(j)-48;
+            j--;
+        }
+        result = Character.toString((char)c%2+48) + result;
+        c = c>>1;
+    }
+    return result;
+    }
+public static void main(String[]args)
+{
+    Scanner sc = new Scanner(System.in);
+    String str1 = sc.nextLine();
+    String str2 = sc.nextLine();
+    System.out.println(addBinary(str1,str2));
+}
+}

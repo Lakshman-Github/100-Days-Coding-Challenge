@@ -1,0 +1,27 @@
+import java.util.*;
+class Main 
+{
+    static StringBuilder convertCamelCase(StringBuilder str)
+    {
+        if(Character.isLowerCase(str.charAt(0)))
+        str.setCharAt(0,Character.toUpperCase(str.charAt(0)));
+        for(int i=1;i<str.length();i++)
+        {
+            if(Character.isAlphabetic(str.charAt(i)) && Character.isUpperCase(str.charAt(i)))
+            {
+                str.setCharAt(i,Character.toLowerCase(str.charAt(i)));
+                str.insert(i," ");
+                i++;
+            }
+        }
+        return str;
+    }
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        String cstr = in.next();
+        in.close();
+        StringBuilder str = new StringBuilder(cstr);
+        System.out.print(convertCamelCase(str));
+    }
+}

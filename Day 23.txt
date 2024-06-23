@@ -1,0 +1,41 @@
+import java.util.Scanner;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        float t1 = 0, t2 = 0,t3 = 0,inp;
+        for(int i=0;i<9;i++)
+        {
+            inp = in.nextFloat();
+            if(inp<1||inp>100)
+            {
+                System.out.print("INVALID INPUT");
+                System.exit(0);
+            }
+            if(inp>=1 && inp<=100)
+            {
+                switch(i%3)
+                {
+                    case 0: t1+=inp; break;
+                    case 1: t2+=inp; break;
+                    case 2: t3+=inp;
+                }
+            }
+        }
+    t1 = Math.round(t1/3);
+    t2 = Math.round(t2/3);
+    t3 = Math.round(t3/3);
+    if(t1<70 && t2<70 && t3<70)
+    {
+        System.out.print("All trainees are unfit");
+        return;
+    }
+    if(t1>=t2 && t1>=t3)
+    System.out.println("Trainee Number: 1");
+    if(t2>=t1 && t2>=t3)
+    System.out.println("Trainees Number: 2");
+    if(t3>=t2 && t3>=t1)
+    System.out.print("Trainee Number: 3");
+    }
+}

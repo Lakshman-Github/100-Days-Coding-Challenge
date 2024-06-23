@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.util.regex.*;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner sc = new Scanner(System.in);
+        Pattern delimiters = Pattern.compile(System.getProperty("Line.separator")+"|\\s");
+        sc.useDelimiter(delimiters);
+        int age, income = 0,limit=1;
+        while(sc.hasNextInt() && limit!=120)
+        {
+            age = sc.nextInt();
+            if(age<0||age>120)
+            {
+                System.out.print("INVALID INPUT");
+                continue;
+            }
+            if(age<=17)
+            income+=200;
+            else if(age<=40)
+            income+=400;
+            else
+            income+=300;
+            limit++;
+        }
+        System.out.print("Total income"+income+"INR");
+    }
+}

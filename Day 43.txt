@@ -1,0 +1,29 @@
+import java.util.*;
+class Main 
+{
+    static int count_sum_of_digits(int N)
+    {
+        int sum = 0;
+        while(N!=0)
+        {
+            sum+=N%10;
+            N/=10;
+        }
+        return sum;
+    }
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        int R = in.nextInt();
+        in.close();
+        if(R==0)
+        {
+            System.out.print(0);
+            System.exit(0);
+        }
+        int sum = count_sum_of_digits(N);
+        sum*=R;
+        System.out.print(count_sum_of_digits(sum));
+    }
+}

@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.Math;
+class Main 
+{
+    static int travellingCost(int r1,int n,int r2,int x)
+    {
+        double x1 = (int) Math.ceil(x/60.0);
+        if(x1<=n)
+        return (int)x1*r1;
+        int fare = n*r1;
+        x1 -= n;
+        fare+=x1*r2;
+        return fare;
+    }
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int r1 = in.nextInt();
+        int n = in.nextInt();
+        int r2 = in.nextInt();
+        int x = in.nextInt();
+        System.out.print(travellingCost(r1,n,r2,x));
+        in.close();
+    }
+}

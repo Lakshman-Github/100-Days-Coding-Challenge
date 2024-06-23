@@ -1,0 +1,44 @@
+import java.util.*;
+class Main 
+{
+    static void printPattern(int n)
+    {
+        int n1,n2,i,j,k,s=0;
+        n1 = (n>>1)+1;
+        n2 = n-n1;
+        for(i=1;i<=n1;i++)
+        {
+            for(j=1;j<n1-i;j++)
+            System.out.print("*");
+            for(j=1;j<=2*i-3;j++)
+            System.out.print(" ");
+            if(i==1)
+            for(j=1;j<=n1-1;j++)
+            System.out.print("*");
+            else
+            for(j=1;j<=n1-i;j++)
+            System.out.print("*");
+            System.out.println();
+        }
+        for( i=1;i<=n2;i++)
+        {
+            for(j=1;j<=i;j++)
+            System.out.print("*");
+            for(j=1;j<=(2*n1-2*i-3);j++)
+            System.out.print(" ");
+            if(i==n2)
+            for(j=1;j<=n2;j++)
+            System.out.print("*");
+            else
+            for(j=1;j<=i+1;j++)
+            System.out.print("*");
+            System.out.println();
+        }
+    }
+public static void main(String[]args)
+{
+    Scanner sc = new Scanner(System.in);
+    printPattern(sc.nextInt());
+    sc.close();
+}
+}

@@ -1,0 +1,31 @@
+import java.util.*;
+class Main 
+{
+    static boolean degitsRepeated(int n)
+    {
+        boolean digits[] = {false,false,false,false,false,false,false,false,false,false};
+        while(n!=0)
+        {
+            if(digits[n%10])
+            return true;
+            digits[n%10] = true;
+            n/=10;
+        }
+        return false;
+    }
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        int n1 = in.nextInt();
+        int n2 = in.nextInt();
+        in.close();
+        int count = 0;
+        while(n1<=n2)
+        {
+            if(!digitsRepeated(n1))
+            count++;
+            n1++;
+        }
+        System.out.print(count);
+    }
+}

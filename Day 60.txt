@@ -1,0 +1,52 @@
+import java.util.*;
+class Main 
+{
+    static String checkFlood(String str)
+    {
+        Stack<Character> parenthesis = new Stack<>();
+        for(int i=0;i<str.length();i++)
+        {
+            switch(str.charAt(i))
+            {
+                case '(':
+                case '<':
+                case '{':
+                case '[': 
+                    
+                        parenthesis.push(str.charAt(i));break;
+                case ')': if(parenthesis.empty() || parenthesis.peek()!='(')
+                            return "Flood";
+                        else
+                            parenthesis.pop();
+                        break;
+                case '>': if(parenthesis.empty() || parenthesis.peek()!='<')
+                            return "Flood";
+                        else
+                            parenthesis.pop();
+                        break;
+                case '}': if(parenthesis.empty() || parenthesis.peek()!='{')
+                          return "Flood";
+                         else
+                          parenthesis.pop();
+                         break;
+                case ']': if(parenthesis.empty() || parenthesis.peek()!='[')
+                         return "Flood";
+                        else
+                         parenthesis.pop();
+                        break;
+            }
+        }
+        if(parenthesis.empty())
+        return "No Flood";
+        else
+        return "Flood";
+    }
+public static void main(String args[])
+{
+    Scanner sc = new Scanner(System.in);
+    String str = sc.nextLine();
+    System.out.println(checkFlood(str));
+    
+}
+    
+}

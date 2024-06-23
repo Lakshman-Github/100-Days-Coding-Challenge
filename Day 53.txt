@@ -1,0 +1,61 @@
+import java.util.*;
+
+class Main {
+    static void printPattern(String str, int n) {
+        int n1, n2, i, j, k, s = 0;
+        n1 = (n >> 1) + 1;
+        n2 = n - n1;
+        int str_len = str.length();
+
+    
+        for (i = 1; i <= n1; i++) {
+            System.out.print(str.charAt(s));
+            s = (s + 1) % str_len;
+        }
+        for (j = 1; j <= 2 * i - 3; j++)
+            System.out.print(" ");
+        if (i == n2) {
+            for (j = 1; j <= n1 - 1; j++) {
+                System.out.print(str.charAt(s));
+                s = (s + 1) % str_len;
+            }
+        } else {
+            for (j = 1; j <= i; j++) {
+                System.out.print(str.charAt(s));
+                s = (s + 1) % str_len;
+            }
+        }
+        System.out.println();
+
+        
+        for (i = n2; i >= 1; i--) {
+            System.out.print(str.charAt(s));
+            s = (s + 1) % str_len;
+        }
+        for (j = 1; j <= 2 * i - 1; j++)
+            System.out.print(" ");
+        if (i == n1 - 1) {
+            for (j = n2; j >= 1; j--) {
+                System.out.print(str.charAt(s));
+                s = (s + 1) % str_len;
+            }
+        } else {
+            for (j = i; j >= 1; j--) {
+                System.out.print(str.charAt(s));
+                s = (s + 1) % str_len;
+            }
+        }
+        System.out.println();
+    }
+
+    public static void main(String args[]) {
+        int n;
+        String str;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        sc.nextLine(); 
+        str = sc.nextLine();
+        printPattern(str, n);
+        sc.close(); 
+    }
+}

@@ -1,0 +1,20 @@
+import java.util.*;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        in.close();
+        int r = n%8;
+        
+        if(r==0)
+        System.out.print(2);
+        else if(r<5)
+        System.out.print(r);
+        else
+        System.out.print(10-r);
+    
+        
+    }
+}

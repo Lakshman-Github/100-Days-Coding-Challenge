@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        String head = in.next();
+        char has_child = in.next().charAt(0);
+        in.nextLine();
+        String children="";
+        int comm = 1;
+        String[] children_arr = {};
+        if(has_child=='Y'|| has_child=='y')
+        {
+            children = in.nextLine();
+            children_arr=children.split(",");
+            comm+=children_arr.length;
+        }
+        System.out.println("TOATL MEMBERS: "+comm);
+        System.out.println("COMMISSION DETAILS");
+        if(has_child == 'Y' || has_child == 'y')
+        {
+            System.out.println(head+": "+(comm - 1)*500+" INR");
+            for(String child: children_arr)
+            System.out.println(child+": 250 INR");
+        }
+        else
+        System.out.println(head+": 250 INR");
+        
+    }
+}

@@ -1,0 +1,33 @@
+import java.util.Scanner;
+class Main  
+{
+    public static void main(String[]args)
+    {
+        char main_menu[]={'C','T','S','R'};
+        int sub_menu_len[] = {3,8,4,3};
+        String C[] = {"Espresso Coffee","Cappuccino Coffee","Latte Coffee"};
+        String T[] = {"Plain Tea","Assam Tea","Ginger Tea","Cardamom Tea","Masala Tea",
+        "Leamon Tea","Green Tea", "Organic Darjeeling Tea"};
+        String S[]={"Hot and Sour Soup","Veg Corn Soup","Tomato Soup","Spicy Tomato Soup"};
+        String R[]={"Hot Chocolate Drink","Badam Drink","Badam-Pista Drink"};
+        Scanner in = new Scanner(System.in);
+        char main = in.next().toUpperCase().charAt(0);
+        int sub = in.nextInt();
+        for(int i=0;i<main_menu.length;i++)
+        {
+            if(main_menu[i]==main && sub_menu_len[i]>=sub)
+            {
+                System.out.print("Welcome to CCD!\nEnjoy your ");
+                switch(main)
+                {
+                    case 'C': System.out.print(C[sub-1]);break;
+                    case 'T': System.out.print(T[sub-1]);break;
+                    case 'S': System.out.print(S[sub-1]);break;
+                    case 'R': System.out.print(R[sub-1]);
+                }
+                System.exit(0);
+            }
+        }
+       System.out.print("INVALID CHOICE"); 
+    }
+}

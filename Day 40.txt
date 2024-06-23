@@ -1,0 +1,22 @@
+import java.util.Scanner;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        int prod = 1;
+        in.close();
+        if(N==0)
+        {
+            System.out.print(N);
+            System.exit(0);
+        }
+        while(N!=0)
+        {
+            prod*=N%10;
+            N/=10;
+        }
+        System.out.print(prod);
+    }
+}

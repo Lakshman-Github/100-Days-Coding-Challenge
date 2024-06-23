@@ -1,0 +1,35 @@
+import java.util.*;
+class Main 
+{
+    static int lapindrome(String str)
+    {
+        int i,j,n = str.length();
+        int arr[] = new int[26];
+        for(i=0;i<26;i++)
+        arr[i] = 0;
+        
+        if(n==0 || n==1)
+        return n;
+        
+        int mid = (n+1)/2;
+        for(i=0,j=mid;j<n;i++,j++)
+        {
+            arr[str.charAt(i)-97]++;
+            arr[str.charAt(i)-97]--;
+        }
+        for(i=0;i<26;i++)
+        if(arr[i]!=0)
+        return 0;
+        return 1;
+    }
+    public static void main(String args[])
+    {
+        String str;
+        Scanner sc = new Scanner(System.in);
+        str = sc.nextLine();
+        if(lapindrome(str)==1)
+        System.out.println("Lapindrome");
+        else
+        System.out.println("Not Lapindrome");
+    }
+}

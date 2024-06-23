@@ -1,0 +1,24 @@
+import java.util.*;
+class Main 
+{
+    public static void main(String[]args)
+    {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int count_odd = 0, count_even=0;
+        while(n>0)
+        {
+            int a = in.nextInt();
+            if(a%2 == 1)
+            count_odd++;
+            else
+            count_even++;
+            n--;
+        }
+        int date = in.nextInt();
+        int fine = in.nextInt();
+        in.close();
+        fine = date%2==1?count_even*fine:count_odd*fine;
+        System.out.print(fine);
+        }
+    }
